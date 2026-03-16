@@ -6,8 +6,8 @@ include 'data/produk.php';
 
 <div class="gallery-row">
     <?php foreach ($produk as $item): ?>
-        <img src="gambar/<?= $item['gambar']; ?>" 
-             alt="<?= $item['nama']; ?>" 
+        <img src="gambar/<?php echo $item['gambar']; ?>" 
+             alt="<?php echo $item['nama']; ?>" 
              class="gallery-thumb">
     <?php endforeach; ?>
 </div>
