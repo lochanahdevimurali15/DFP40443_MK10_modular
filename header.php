@@ -6,8 +6,12 @@
 <title>Biskut Klasik</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Mulish&family=Questrial&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 <body class="page-body">
+
 <div class="container">
