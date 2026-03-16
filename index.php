@@ -15,6 +15,9 @@ elseif ($menu === 'tempah') {
 elseif ($menu === 'invois') {
     include 'pages/invois.php';
 }
+else {
+    echo "<h2 style='text-align:center;'>Menu tidak ditemukan</h2>";
+}
 
 include 'includes/footer.php';
 ?>
