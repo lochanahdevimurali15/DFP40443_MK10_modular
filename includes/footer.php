@@ -1,7 +1,7 @@
 </div>
 
 <footer class="main-footer">
-    &copy; 2026 Projek PHP
+    &copy; 2026 Sabri bin Saep
 </footer>
 
 </body>
