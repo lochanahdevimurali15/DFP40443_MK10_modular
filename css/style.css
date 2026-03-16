@@ -6,6 +6,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .container {
@@ -19,10 +20,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
     background-color: #333;
     padding: 20px;
     border-radius: 8px;
-    margin-bottom: 20px;
 }
 
 .site-title {
@@ -38,8 +39,9 @@
 }
 
 .nav-link {
-    color: white;
     text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
 }
 
 .nav-link:hover {
@@ -48,8 +50,6 @@
 
 .page-title {
     text-align: center;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
 }
 
 .gallery-row {
@@ -67,19 +67,10 @@
     border-radius: 10px;
 }
 
-.instructions-section {
-    margin-top: 40px;
-    padding: 30px;
-    background: white;
-    border-radius: 8px;
-    text-align: center;
-}
-
 .main-footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     margin-top: 30px;
-    border-radius: 8px;
 }

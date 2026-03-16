@@ -1,11 +1,5 @@
-<?php include 'data/produk.php'; ?>
+<h2 class="page-title">Selamat Datang</h2>
 
-<h1 class="page-title">Selamat Datang</h1>
-
-<div class="gallery-row">
-    <?php foreach ($data as $produk): ?>
-        <img src="gambar/<?= htmlspecialchars($produk['gambar']) ?>"
-             alt="<?= htmlspecialchars($produk['nama']) ?>"
-             class="gallery-thumb">
-    <?php endforeach; ?>
-</div>
+<p style="text-align:center;">
+Sistem Tempahan Biskut Online
+</p>
