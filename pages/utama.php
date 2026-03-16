@@ -1,15 +1,13 @@
-<h1 class="page-title">Selamat Datang</h1>
+<?php
+include 'data/produk.php';
+?>
+
+<h1 class="page-title">Halaman Utama</h1>
 
 <div class="gallery-row">
-
-<?php foreach ($data as $produk): ?>
-
-    <div class="gallery-item">
-        <img src="gambar/<?= $produk['gambar']; ?>" 
-             alt="<?= $produk['nama']; ?>" 
+    <?php foreach ($produk as $item): ?>
+        <img src="gambar/<?= $item['gambar']; ?>" 
+             alt="<?= $item['nama']; ?>" 
              class="gallery-thumb">
-    </div>
-
-<?php endforeach; ?>
-
+    <?php endforeach; ?>
 </div>
