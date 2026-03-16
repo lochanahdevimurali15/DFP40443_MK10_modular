@@ -3,22 +3,23 @@ session_start();
 
 $menu = $_GET['menu'] ?? 'utama';
 
-include 'header.php';
-include 'navbar.php';
+include 'data/produk.php';
+include 'includes/header.php';
+include 'includes/navbar.php';
 
-switch($menu){
+switch ($menu) {
 
     case 'tempah':
-        include 'tempah.php';
+        include 'pages/tempah.php';
         break;
 
     case 'invois':
-        include 'invois.php';
+        include 'pages/invois.php';
         break;
 
     default:
-        include 'utama.php';
+        include 'pages/utama.php';
 }
 
-include 'footer.php';
+include 'includes/footer.php';
 ?>

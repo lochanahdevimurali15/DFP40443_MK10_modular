@@ -1,0 +1,44 @@
+body {
+    font-family: 'Questrial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.site-title {
+    color: white;
+    margin: 0;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-menu a:hover {
+    color: #e44d26;
+}
+
+.main-footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+}
