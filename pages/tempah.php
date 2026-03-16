@@ -1,28 +1,62 @@
-<h1>Borang Tempahan</h1>
+<?php
+// Start session already done in index.php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $produk_id = $_POST['produk_id'];
+    $saiz = $_POST['saiz'];
+    $kuantiti = $_POST['kuantiti'];
+
+    // Cari produk
+    foreach ($data as $item) {
+        if ($item['id'] == $produk_id) {
+
+            $nama = $item['nama'];
+            $harga = $item['harga'][$saiz];
+            $jumlah = $harga * $kuantiti;
+
+            // Simpan dalam session
+            $_SESSION['invois'] = [
+                'nama' => $nama,
+                'saiz' => $saiz,
+                'kuantiti' => $kuantiti,
+                'harga' => $harga,
+                'jumlah' => $jumlah
+            ];
+
+            header("Location: index.php?menu=invois");
+            exit();
+        }
+    }
+}
+?>
+
+<h1 class="page-title">Tempahan</h1>
 
 <form method="POST">
 
-<?php foreach ($data as $produk): ?>
+    <label>Pilih Produk:</label><br>
+    <select name="produk_id" required>
+        <?php foreach ($data as $item): ?>
+            <option value="<?= $item['id']; ?>">
+                <?= $item['nama']; ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <br><br>
 
-    <h3><?= $produk['nama'] ?></h3>
+    <label>Saiz:</label><br>
+    <select name="saiz" required>
+        <option value="pek_mini">Pek Mini</option>
+        <option value="kecil">Kecil</option>
+        <option value="besar">Besar</option>
+    </select>
+    <br><br>
 
-    <?php foreach ($produk['harga'] as $saiz => $harga): ?>
+    <label>Kuantiti:</label><br>
+    <input type="number" name="kuantiti" min="1" required>
+    <br><br>
 
-        <label><?= ucfirst(str_replace('_',' ',$saiz)) ?> (RM <?= $harga ?>)</label>
-        <input type="number"
-               name="tempahan[<?= $produk['id'] ?>][<?= $saiz ?>]"
-               min="0"
-               value="0"><br>
-
-    <?php endforeach; ?>
-
-<?php endforeach; ?>
-
-<br>
-Nama:
-<input type="text" name="nama_pelanggan" required>
-
-<br><br>
-<button type="submit">Teruskan</button>
+    <button type="submit">Tempah</button>
 
 </form>

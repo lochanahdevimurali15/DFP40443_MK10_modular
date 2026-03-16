@@ -7,7 +7,7 @@ include 'data/produk.php';
 include 'includes/header.php';
 include 'includes/navbar.php';
 
-switch ($menu) {
+switch($menu){
 
     case 'tempah':
         include 'pages/tempah.php';

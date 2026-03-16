@@ -1,14 +1,15 @@
 <h1 class="page-title">Selamat Datang</h1>
 
 <div class="gallery-row">
-<?php foreach ($data as $produk): ?>
-    <img src="gambar/<?= htmlspecialchars($produk['gambar']) ?>"
-         alt="<?= htmlspecialchars($produk['nama']) ?>"
-         class="gallery-thumb">
-<?php endforeach; ?>
-</div>
 
-<div class="instructions-section">
-    <h3>Cara Membuat Tempahan</h3>
-    <p>...</p>
+<?php foreach ($data as $produk): ?>
+
+    <div class="gallery-item">
+        <img src="gambar/<?= $produk['gambar']; ?>" 
+             alt="<?= $produk['nama']; ?>" 
+             class="gallery-thumb">
+    </div>
+
+<?php endforeach; ?>
+
 </div>
