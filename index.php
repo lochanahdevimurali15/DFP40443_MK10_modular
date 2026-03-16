@@ -6,13 +6,13 @@ $menu = $_GET['menu'] ?? 'utama';
 include 'includes/header.php';
 include 'includes/navbar.php';
 
-if ($menu === 'utama') {
+if ($menu == 'utama') {
     include 'pages/utama.php';
 }
-elseif ($menu === 'tempah') {
+elseif ($menu == 'tempah') {
     include 'pages/tempah.php';
 }
-elseif ($menu === 'invois') {
+elseif ($menu == 'invois') {
     include 'pages/invois.php';
 }
 
