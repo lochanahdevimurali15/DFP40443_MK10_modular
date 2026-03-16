@@ -1,73 +1,57 @@
 <?php
-include 'data/produk.php';
+// Jangan panggil session_start() di sini kerana sudah ada di index.php
+include "data/produk.php";
+include "layout/header.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $nama_pelanggan = htmlspecialchars($_POST['nama_pelanggan']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nama_pelanggan = trim($_POST['nama_pelanggan'] ?? '');
     $tempahan = $_POST['tempahan'] ?? [];
 
-    $item_tempahan = [];
-    $jumlah_besar = 0;
+    $no_invois = 'INV' . rand(1000, 9999);
+    $tarikh = date('d/m/Y');
 
-    foreach ($tempahan as $id => $saiz_list) {
-
-        foreach ($produk as $p) {
-            if ($p['id'] == $id) {
-
-                foreach ($saiz_list as $saiz => $qty) {
-
-                    if ($qty > 0) {
-                        $harga = $p['harga'][$saiz];
-                        $jumlah = $harga * $qty;
-
-                        $item_tempahan[] = [
-                            'nama'=>$p['nama'],
-                            'saiz'=>$saiz,
-                            'harga'=>$harga,
-                            'kuantiti'=>$qty,
-                            'jumlah'=>$jumlah
-                        ];
-
-                        $jumlah_besar += $jumlah;
-                    }
-                }
-            }
-        }
-    }
-
-    $_SESSION['invois'] = [
-        'nama'=>$nama_pelanggan,
-        'items'=>$item_tempahan,
-        'jumlah'=>$jumlah_besar
+    $_SESSION['invois_data'] = [
+        'nama_pelanggan' => $nama_pelanggan,
+        'tempahan' => $tempahan,
+        'no_invois' => $no_invois,
+        'tarikh' => $tarikh
     ];
 
     header("Location: index.php?menu=invois");
+    exit();
 }
 ?>
 
-<h2 class="page-title">Tempah Biskut</h2>
+<h1 class="page-title">Borang Tempahan</h1>
 
 <form method="POST">
 
-Nama: <input type="text" name="nama_pelanggan" required>
+    <?php foreach($produk as $p): ?>
+        <h3><?= htmlspecialchars($p['nama']) ?></h3>
 
-<br><br>
-
-<?php foreach($produk as $p): ?>
-    <div>
-        <img src="gambar/<?= $p['gambar']; ?>" class="gallery-thumb">
-        <h4><?= $p['nama']; ?></h4>
-
-        <?php foreach($p['harga'] as $saiz=>$harga): ?>
-            <?= $saiz ?> (RM<?= $harga ?>)
-            <input type="number" name="tempahan[<?= $p['id']; ?>][<?= $saiz; ?>]" value="0" min="0">
+        <?php foreach($p['harga'] as $saiz => $harga): ?>
+            <input
+                type="number"
+                name="tempahan[<?= $p['id'] ?>][<?= $saiz ?>]"
+                value="0"
+                min="0">
+            <?= ucwords(str_replace('_',' ',$saiz)) ?>
+            RM <?= number_format($harga,2) ?>
             <br>
         <?php endforeach; ?>
+    <?php endforeach; ?>
 
-    </div>
-    <hr>
-<?php endforeach; ?>
+    <br>
 
-<button type="submit">Hantar</button>
+    <input type="text"
+        name="nama_pelanggan"
+        placeholder="Nama"
+        required>
+
+    <button type="submit">
+        Teruskan
+    </button>
 
 </form>
+
+<?php include "layout/footer.php"; ?>

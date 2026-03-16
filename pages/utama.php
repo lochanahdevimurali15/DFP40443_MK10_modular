@@ -1,15 +1,21 @@
-<?php include 'data/produk.php'; ?>
+<?php
+include "data/produk.php";
+include "layout/header.php";
+?>
 
+<!-- Page Title -->
 <h1 class="page-title">Selamat Datang</h1>
 
+<!-- Gallery Container -->
 <div class="gallery-row">
-<?php foreach ($produk as $item): ?>
-    <div style="text-align:center;">
-        <img src="gambar/<?= htmlspecialchars($item['gambar']) ?>" 
-             class="gallery-thumb"
-             alt="<?= htmlspecialchars($item['nama']) ?>">
-
-        <h3><?= htmlspecialchars($item['nama']) ?></h3>
-    </div>
-<?php endforeach; ?>
+    <?php foreach($produk as $p): ?>
+        <img
+            src="gambar/<?= $p['gambar'] ?>"
+            alt="<?= $p['nama'] ?>"
+            class="gallery-thumb">
+    <?php endforeach; ?>
 </div>
+
+<?php
+include "layout/footer.php";
+?>

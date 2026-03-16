@@ -1,23 +1,22 @@
 <?php
-session_start();
+session_start(); // Mulakan session sekali sahaja di sini
 
-$menu = $_GET['menu'] ?? 'utama';
+$current = $_GET['menu'] ?? 'utama';
 
-include 'includes/header.php';
-include 'includes/navbar.php';
+// Kawal routing halaman modular
+switch($current){
+    case 'utama':
+        include "pages/utama.php";
+        break;
 
-if ($menu === 'utama') {
-    include 'pages/utama.php';
-}
-elseif ($menu === 'tempah') {
-    include 'pages/tempah.php';
-}
-elseif ($menu === 'invois') {
-    include 'pages/invois.php';
-}
-else {
-    echo "<h2 style='text-align:center;'>Menu tidak ditemukan</h2>";
-}
+    case 'tempah':
+        include "pages/tempah.php";
+        break;
 
-include 'includes/footer.php';
-?>
+    case 'invois':
+        include "pages/invois.php";
+        break;
+
+    default:
+        echo "Menu tidak wujud";
+}
