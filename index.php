@@ -1,22 +1,29 @@
 <?php
-session_start(); // Mulakan session sekali sahaja di sini
+session_start();
 
-$current = $_GET['menu'] ?? 'utama';
+require_once 'data/products.php';
+require_once 'processess/functions.php';
 
-// Kawal routing halaman modular
-switch($current){
-    case 'utama':
-        include "pages/utama.php";
-        break;
+$menu = getMenu();
+$data = getProducts($productsData);
 
-    case 'tempah':
-        include "pages/tempah.php";
-        break;
-
-    case 'invois':
-        include "pages/invois.php";
-        break;
-
-    default:
-        echo "Menu tidak wujud";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $menu === 'tempah') {
+    handleOrderSubmission($data);
 }
+
+$pageTitle = getPageTitle($menu);
+
+include 'includes/header.php';
+include 'includes/nav.php';
+
+if ($menu === 'utama') {
+    include 'includes/utama.php';
+} elseif ($menu === 'tempah') {
+    include 'includes/tempah.php';
+} elseif ($menu === 'invois') {
+    include 'includes/invois.php';
+} else {
+    include 'includes/error.php';
+}
+
+include 'includes/footer.php';

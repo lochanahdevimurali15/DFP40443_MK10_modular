@@ -1,6 +1,6 @@
 <?php
 
-$produk = [
+$productsData = [
     [
         'id' => 1,
         'nama' => 'Kuih Semperit',
@@ -40,5 +40,5 @@ $produk = [
             'kecil' => 25.00,
             'besar' => 50.00
         ]
-    ]
+    ],
 ];
