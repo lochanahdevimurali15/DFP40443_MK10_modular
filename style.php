@@ -1,3 +1,5 @@
+<style> 
+
 .page-body{
 font-family:'Questrial',sans-serif;
 background:#f0f2f5;
@@ -81,3 +83,5 @@ margin-top:30px;
     gap: 20px;
     justify-content: center;
 }
+
+</style>
