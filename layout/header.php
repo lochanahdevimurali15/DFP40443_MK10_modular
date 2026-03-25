@@ -12,7 +12,7 @@ $current = $_GET['menu'] ?? 'utama';
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Questrial&display=swap" rel="stylesheet">
 
-<?php include "layout/style.php"; ?>
+<?php include "layout/style.css"; ?>
 
 </head>
 
