@@ -7,7 +7,7 @@ require_once 'processess/functions.php';
 $menu = getMenu();
 $data = getProducts($productsData);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $menu === 'tempah') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $menu === 'tempoh') {
     handleOrderSubmission($data);
 }
 
